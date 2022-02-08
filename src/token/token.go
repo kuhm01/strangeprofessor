@@ -8,10 +8,10 @@ type Token struct {
 }
 
 var keywords = map[string]TokenType{
-	"교수님": 교수님,
-	"주세요": 공갈,
-	"줘":   공갈,
-	"내놔":  공갈,
+	"교수님": PROFESSOR,
+	"주세요": GIVEME,
+	"줘":   GIVEME,
+	"내놔":  GIVEME,
 
 	"A": CONSTINT,
 	"B": CONSTINT,
@@ -19,7 +19,7 @@ var keywords = map[string]TokenType{
 	"D": CONSTINT,
 	"F": CONSTINT,
 
-	"여석신청": 여석신청,
+	"여석신청": YEOSEOK,
 
 	"전공": FLAG,
 
@@ -39,18 +39,47 @@ var keywords = map[string]TokenType{
 	"점수발표": PRINTER,
 }
 
+func isRequireProfessor(ident string) bool {
+	flag := true
+	for i, tt := range ident {
+		switch i {
+		case 0:
+			if string(tt) != "교" {
+				flag = false
+			}
+		case 3:
+			if string(tt) != "수" {
+				flag = false
+			}
+		case 6:
+			if string(tt) != "님" {
+				flag = false
+			}
+		default:
+			if string(tt) != "!" {
+				flag = false
+			}
+		}
+	}
+
+	return flag
+}
+
 func LookupIdent(ident string) TokenType {
 	if tok, ok := keywords[ident]; ok {
 		return tok
+	} else if isRequireProfessor(ident) {
+		return STATICVAR
 	}
+
 	return IDENT
 }
 
 const (
 	IDENT = "IDENT"
 
-	교수님 = "교수님"
-	공갈  = "공갈"
+	PROFESSOR = "교수님"
+	GIVEME    = "공갈"
 
 	STATICVAR  = "STATICVAR"
 	DYNAMICVAR = "DYNAMICVAR"
@@ -59,9 +88,10 @@ const (
 	INT      = "INT"
 	STRING   = "STRING"
 
-	여석신청 = "여석신청"
+	YEOSEOK = "여석신청"
 
-	SEMICOLON = "SEMICOLON"
+	SEMICOLON = ";"
+	COLON     = ","
 
 	IF     = "IF"
 	IFFLAG = "IFFLAG"
@@ -71,7 +101,10 @@ const (
 	STACKOPER = "STACKOPER"
 	PRINTER   = "PRINTER"
 
-	DOTHAT = "DOTHAT"
+	BANG     = "!"
+	QUESTION = "?"
 
 	EXITPOINT = "EXITPOINT"
+
+	ILLEGAL = "ILLEGAL"
 )

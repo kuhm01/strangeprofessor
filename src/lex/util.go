@@ -5,3 +5,7 @@ func (l *Lexer) skipWhitespace() {
 		l.readChar()
 	}
 }
+
+func isLetter(ch string) bool {
+	return "a" <= ch && ch <= "z" || "A" <= ch && ch <= "Z" || ch == "_"
+}

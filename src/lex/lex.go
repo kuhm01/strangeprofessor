@@ -30,8 +30,22 @@ func (l *Lexer) NextToken() token.Token {
 	l.skipWhitespace()
 
 	switch l.ch {
+	case "!":
+		tok = newToken(token.BANG, l.ch)
+	case "?":
+		tok = newToken(token.QUESTION, l.ch)
+	case ",":
+		tok = newToken(token.COLON, l.ch)
 	default:
-
+		if isLetter(l.ch) {
+			tok.Literal = l.readIdentifier()
+			tok.Type = token.LookupIdent(tok.Literal)
+			return tok
+		} else {
+			tok.Literal = l.readKeyword()
+			tok.Type = token.LookupIdent(tok.Literal)
+			return tok
+		}
 	}
 
 	l.readChar()
