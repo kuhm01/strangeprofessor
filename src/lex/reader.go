@@ -29,7 +29,7 @@ func (l *Lexer) peekchar() string {
 
 func (l *Lexer) readKeyword() string {
 	position := l.position
-	for l.ch != "," {
+	for l.ch != "," && l.ch != " " {
 		l.readChar()
 		if l.input[position:l.position] == "졸업" {
 			return l.input[position:l.position]
@@ -44,4 +44,12 @@ func (l *Lexer) readIdentifier() (string, token.TokenType) {
 		l.readChar()
 	}
 	return l.input[position:l.position], token.IDENT
+}
+
+func (l *Lexer) readNumber() string {
+	position := l.position
+	for isDigit(l.ch) {
+		l.readChar()
+	}
+	return l.input[position:l.position]
 }

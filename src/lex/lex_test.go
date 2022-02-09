@@ -8,7 +8,8 @@ import (
 func TestNextToken(t *testing.T) {
 	input := `
 	교수님!!,
-	전공, aster_big, 몰루,
+	전공 aster_big 몰루,
+	123
 	졸업
 	`
 
@@ -19,11 +20,10 @@ func TestNextToken(t *testing.T) {
 		{token.STATICVAR, "교수님!!"},
 		{token.COLON, ","},
 		{token.FLAG, "전공"},
-		{token.COLON, ","},
 		{token.IDENT, "aster_big"},
-		{token.COLON, ","},
 		{token.ILLEGAL, "몰루"},
 		{token.COLON, ","},
+		{token.INT, "123"},
 		{token.EXITPOINT, "졸업"},
 	}
 

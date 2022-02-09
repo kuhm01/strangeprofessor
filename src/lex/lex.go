@@ -36,9 +36,16 @@ func (l *Lexer) NextToken() token.Token {
 		tok = newToken(token.QUESTION, l.ch)
 	case ",":
 		tok = newToken(token.COLON, l.ch)
+	case " ":
+		l.readChar()
+		tok = l.NextToken()
 	default:
 		if isLetter(l.ch) {
 			tok.Literal, tok.Type = l.readIdentifier()
+			return tok
+		} else if isDigit(l.ch) {
+			tok.Literal = l.readNumber()
+			tok.Type = token.INT
 			return tok
 		} else {
 			tok.Literal = l.readKeyword()

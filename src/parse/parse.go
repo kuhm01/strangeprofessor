@@ -38,16 +38,6 @@ func New(l *lex.Lexer) *Parser {
 	return p
 }
 
-func (p *Parser) nextToken() {
-	p.curToken = p.peekToken
-	if p.curToken.Type == token.EXITPOINT {
-		p.peekToken.Type = ""
-		p.peekToken.Literal = ""
-	} else {
-		p.peekToken = p.l.NextToken()
-	}
-}
-
 func (p *Parser) Errors() []string {
 	return p.errors
 }
@@ -65,4 +55,12 @@ func (p *Parser) ParseProgram() *ast.Program {
 	}
 
 	return program
+}
+
+func (p *Parser) registerPrefix(tokenType token.TokenType, fn prefixParseFn) {
+	p.prefixParseFns[tokenType] = fn
+}
+
+func (p *Parser) registerInfix(tokenType token.TokenType, fn infixParseFn) {
+	p.infixParseFns[tokenType] = fn
 }

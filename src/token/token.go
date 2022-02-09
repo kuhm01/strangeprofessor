@@ -20,6 +20,7 @@ var keywords = map[string]TokenType{
 	"F": CONSTINT,
 
 	"여석신청": YEOSEOK,
+	"자리":   JARI,
 
 	"전공": FLAG,
 
@@ -89,6 +90,7 @@ const (
 	STRING   = "STRING"
 
 	YEOSEOK = "여석신청"
+	JARI    = "자리"
 
 	SEMICOLON = ";"
 	COLON     = ","

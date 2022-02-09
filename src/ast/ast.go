@@ -23,4 +23,5 @@ type Program struct {
 
 type YeoseokStatement struct {
 	Token token.Token
+	Value int64
 }
