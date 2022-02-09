@@ -1,5 +1,7 @@
 package lex
 
+import "professorc/src/token"
+
 //https://github.com/rycont/umjunsik-lang/blob/master/umjunsik-lang-go/lexer/lexer.go
 func (l *Lexer) readChar() {
 	Byte1 := l.input[l.readPosition]
@@ -29,14 +31,17 @@ func (l *Lexer) readKeyword() string {
 	position := l.position
 	for l.ch != "," {
 		l.readChar()
+		if l.input[position:l.position] == "졸업" {
+			return l.input[position:l.position]
+		}
 	}
 	return l.input[position:l.position]
 }
 
-func (l *Lexer) readIdentifier() string {
+func (l *Lexer) readIdentifier() (string, token.TokenType) {
 	position := l.position
 	for isLetter(l.ch) {
 		l.readChar()
 	}
-	return l.input[position:l.position]
+	return l.input[position:l.position], token.IDENT
 }

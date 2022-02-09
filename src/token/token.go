@@ -72,7 +72,7 @@ func LookupIdent(ident string) TokenType {
 		return STATICVAR
 	}
 
-	return IDENT
+	return ILLEGAL
 }
 
 const (
@@ -107,4 +107,5 @@ const (
 	EXITPOINT = "EXITPOINT"
 
 	ILLEGAL = "ILLEGAL"
+	EOF     = "EOF"
 )

@@ -8,8 +8,8 @@ import (
 func TestNextToken(t *testing.T) {
 	input := `
 	교수님!!,
-	전공, aster_big,
-	졸업,
+	전공, aster_big, 몰루,
+	졸업
 	`
 
 	tests := []struct {
@@ -22,8 +22,9 @@ func TestNextToken(t *testing.T) {
 		{token.COLON, ","},
 		{token.IDENT, "aster_big"},
 		{token.COLON, ","},
-		{token.EXITPOINT, "졸업"},
+		{token.ILLEGAL, "몰루"},
 		{token.COLON, ","},
+		{token.EXITPOINT, "졸업"},
 	}
 
 	l := New(input)
