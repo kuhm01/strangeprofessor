@@ -27,7 +27,7 @@ var keywords = map[string]TokenType{
 
 	"교양":   IF,
 	"교양필수": IFFLAG,
-	"교양선택": IFFLAG,
+	"교양선택": ELSEFLAG,
 
 	"졸업": EXITPOINT,
 
@@ -96,8 +96,9 @@ const (
 	SEMICOLON = ";"
 	COLON     = ","
 
-	IF     = "IF"
-	IFFLAG = "IFFLAG"
+	IF       = "IF"
+	IFFLAG   = "IFFLAG"
+	ELSEFLAG = "ELSEFLAG"
 
 	FLAG      = "FLAG"
 	JUMPPOINT = "JUMPPOINT"
