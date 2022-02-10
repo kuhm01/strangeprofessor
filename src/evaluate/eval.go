@@ -16,7 +16,7 @@ func Eval(node ast.Node, env *environment.Environment) {
 }
 
 func evalProgram(program *ast.Program, env *environment.Environment) {
-	pc := NewPC()
+	//pc := NewPC()
 	for _, statement := range program.Statements {
 		Eval(statement, env)
 	}
