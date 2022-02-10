@@ -32,3 +32,15 @@ func (p *Parser) parseYeoseokStatement() *ast.YeoseokStatement {
 func (p *Parser) parseStaticVarOperatingStatement() *ast.StaticVarStatement {
 	return nil
 }
+
+func (p *Parser) parseMajorFlag() *ast.MajorFlagStatement {
+	stmt := &ast.MajorFlagStatement{Token: p.curToken}
+
+	if !p.expectPeek(token.IDENT) {
+		return nil
+	}
+
+	stmt.Identifier = p.curToken.Literal
+
+	return stmt
+}

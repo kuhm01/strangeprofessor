@@ -25,5 +25,9 @@ func (y *YeoseokStatement) TokenLiteral() string { return y.Token.Literal }
 func (y *YeoseokStatement) String() string       { return y.Token.Literal }
 
 func (sv *StaticVarStatement) statementNode()       {}
-func (sv *StaticVarStatement) TokenLiteral() string { return "" }
-func (sv *StaticVarStatement) String() string       { return "" }
+func (sv *StaticVarStatement) TokenLiteral() string { return sv.Token.Literal }
+func (sv *StaticVarStatement) String() string       { return sv.Token.Literal }
+
+func (mf *MajorFlagStatement) statementNode()       {}
+func (mf *MajorFlagStatement) TokenLiteral() string { return mf.Token.Literal }
+func (mf *MajorFlagStatement) String() string       { return mf.Token.Literal }

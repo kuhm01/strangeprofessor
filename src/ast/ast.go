@@ -27,4 +27,10 @@ type YeoseokStatement struct {
 }
 
 type StaticVarStatement struct {
+	Token token.Token
+}
+
+type MajorFlagStatement struct {
+	Token      token.Token
+	Identifier string
 }

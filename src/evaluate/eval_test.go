@@ -10,7 +10,7 @@ import (
 func TestEval(t *testing.T) {
 	input := `여석신청 12 자리,
 	여석신청 15 자리,
-	교수님!!,
+	전공 ast,
 	졸업
 	`
 

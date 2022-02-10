@@ -12,6 +12,9 @@ func Eval(node ast.Node, env *environment.Environment) {
 
 	case *ast.YeoseokStatement:
 		env.Student.RenewStack(int(node.Value))
+
+	case *ast.MajorFlagStatement:
+		return
 	}
 }
 
