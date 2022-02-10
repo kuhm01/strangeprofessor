@@ -1,5 +1,7 @@
 package environment
 
+const 수강인원 int = 10
+
 type node struct {
 	Value int
 }
@@ -12,7 +14,7 @@ type stack struct {
 }
 
 func NewStack() *stack {
-	return &stack{students: make([]*node, 30), index: -1, len: 0, limiter: 30}
+	return &stack{students: make([]*node, 수강인원), index: -1, len: 0, limiter: 수강인원}
 }
 
 func (s *stack) Push(n *node) bool {
