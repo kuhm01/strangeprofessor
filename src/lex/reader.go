@@ -29,7 +29,7 @@ func (l *Lexer) peekchar() string {
 
 func (l *Lexer) readKeyword() string {
 	position := l.position
-	for l.ch != "," && l.ch != " " {
+	for l.ch != "," && l.ch != " " && l.ch != "" {
 		l.readChar()
 		if l.input[position:l.position] == "졸업" {
 			return l.input[position:l.position]

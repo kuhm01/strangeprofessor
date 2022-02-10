@@ -22,7 +22,8 @@ var keywords = map[string]TokenType{
 	"여석신청": YEOSEOK,
 	"자리":   JARI,
 
-	"전공": FLAG,
+	"전공":  FLAG,
+	"재수강": JUMPPOINT,
 
 	"교양":   IF,
 	"교양필수": IFFLAG,
@@ -98,7 +99,8 @@ const (
 	IF     = "IF"
 	IFFLAG = "IFFLAG"
 
-	FLAG = "FLAG"
+	FLAG      = "FLAG"
+	JUMPPOINT = "JUMPPOINT"
 
 	STACKOPER = "STACKOPER"
 	PRINTER   = "PRINTER"
