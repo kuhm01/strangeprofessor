@@ -28,3 +28,7 @@ func (p *Parser) parseYeoseokStatement() *ast.YeoseokStatement {
 
 	return stmt
 }
+
+func (p *Parser) parseStaticVarOperatingStatement() *ast.StaticVarStatement {
+	return nil
+}

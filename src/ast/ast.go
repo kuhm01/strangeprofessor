@@ -25,3 +25,6 @@ type YeoseokStatement struct {
 	Token token.Token
 	Value int64
 }
+
+type StaticVarStatement struct {
+}

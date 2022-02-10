@@ -23,3 +23,7 @@ func (p *Program) String() string {
 func (y *YeoseokStatement) statementNode()       {}
 func (y *YeoseokStatement) TokenLiteral() string { return y.Token.Literal }
 func (y *YeoseokStatement) String() string       { return y.Token.Literal }
+
+func (sv *StaticVarStatement) statementNode()       {}
+func (sv *StaticVarStatement) TokenLiteral() string { return "" }
+func (sv *StaticVarStatement) String() string       { return "" }
