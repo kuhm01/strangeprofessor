@@ -1,10 +1,15 @@
 package environment
 
 type Environment struct {
-	Student *stack
-	Changed *Queue
+	Student   *Stack
+	Changed   *Queue
+	Professor *StaticValues
 }
 
 func New() *Environment {
-	return &Environment{Student: NewStack(), Changed: NewQueue()}
+	return &Environment{
+		Student:   NewStack(),
+		Changed:   NewQueue(),
+		Professor: NewProfessor(),
+	}
 }
