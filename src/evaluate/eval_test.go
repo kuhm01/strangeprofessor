@@ -1,6 +1,7 @@
 package evaluate
 
 import (
+	"professorc/src/environment"
 	"professorc/src/lex"
 	"professorc/src/parse"
 	"testing"
@@ -13,5 +14,6 @@ func TestEval(t *testing.T) {
 	l := lex.New(input)
 	p := parse.New(l)
 	program := p.ParseProgram()
-	Eval(program)
+	env := environment.New()
+	Eval(program, env)
 }

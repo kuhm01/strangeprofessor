@@ -1,23 +1,22 @@
 package evaluate
 
 import (
-	"io"
-	"os"
 	"professorc/src/ast"
+	"professorc/src/environment"
 )
 
-func Eval(node ast.Node) {
+func Eval(node ast.Node, env *environment.Environment) {
 	switch node := node.(type) {
 	case *ast.Program:
-		evalProgram(node)
+		evalProgram(node, env)
 
 	case *ast.YeoseokStatement:
-		io.WriteString(os.Stdout, "여석신청이요!")
+		env.Student.RenewStack(int(node.Value))
 	}
 }
 
-func evalProgram(program *ast.Program) {
+func evalProgram(program *ast.Program, env *environment.Environment) {
 	for _, statement := range program.Statements {
-		Eval(statement)
+		Eval(statement, env)
 	}
 }
