@@ -29,6 +29,7 @@ func New(l *lex.Lexer) *Parser {
 	}
 
 	p.prefixParseFns = make(map[token.TokenType]prefixParseFn)
+	p.registerPrefix(token.CONSTINT, p.parseConstantExpression)
 
 	p.infixParseFns = make(map[token.TokenType]infixParseFn)
 
@@ -59,8 +60,4 @@ func (p *Parser) ParseProgram() *ast.Program {
 
 func (p *Parser) registerPrefix(tokenType token.TokenType, fn prefixParseFn) {
 	p.prefixParseFns[tokenType] = fn
-}
-
-func (p *Parser) registerInfix(tokenType token.TokenType, fn infixParseFn) {
-	p.infixParseFns[tokenType] = fn
 }

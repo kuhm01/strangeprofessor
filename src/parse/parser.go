@@ -9,8 +9,8 @@ func (p *Parser) parseStatement() ast.Statement {
 	switch p.curToken.Type {
 	case token.YEOSEOK:
 		return p.parseYeoseokStatement()
-	//case token.STATICVAR:
-	//	return p.parseStaticVarOperatingStatement()
+	case token.STATICVAR:
+		return p.parseStaticVarOperatingStatement()
 	case token.FLAG:
 		return p.parseMajorFlag()
 	case token.JUMPPOINT:

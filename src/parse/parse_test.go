@@ -21,7 +21,7 @@ func checkParserErrors(t *testing.T, p *Parser) {
 
 func TestParse(t *testing.T) {
 	input := `
-	교수님!!,
+	교수님!! ABBCDA 주세요,
 	전공 aster_big, 몰루,
 	여석신청 12 자리,
 	졸업

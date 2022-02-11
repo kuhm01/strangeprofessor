@@ -5,6 +5,7 @@ import (
 	"professorc/src/ast"
 	"professorc/src/token"
 	"strconv"
+	"strings"
 )
 
 func (p *Parser) parseYeoseokStatement() *ast.YeoseokStatement {
@@ -30,7 +31,43 @@ func (p *Parser) parseYeoseokStatement() *ast.YeoseokStatement {
 }
 
 func (p *Parser) parseStaticVarOperatingStatement() *ast.StaticVarStatement {
-	return nil
+	stmt := &ast.StaticVarStatement{Token: p.curToken}
+
+	ps := p.curToken.Literal
+	var iv int
+
+	switch ps[9] {
+	case '!':
+		iv = strings.Count(ps, "!")
+	case '?':
+		iv = strings.Count(ps, "?")
+	}
+
+	stmt.Index = iv - 1
+
+	if !p.expectPeek(token.CONSTINT) {
+		return nil
+	}
+
+	stmt.Constant = p.parseExpression()
+
+	if !p.expectPeek(token.GIVEME) {
+		return nil
+	}
+
+	s := p.curToken.Literal
+	switch s {
+	case "주세요":
+		stmt.Level = 1
+	case "줘":
+		stmt.Level = 2
+	case "내놔":
+		stmt.Level = 3
+	default:
+		return nil
+	}
+
+	return stmt
 }
 
 func (p *Parser) parseMajorFlag() *ast.MajorFlagStatement {
