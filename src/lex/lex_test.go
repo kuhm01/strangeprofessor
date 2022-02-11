@@ -12,6 +12,7 @@ func TestNextToken(t *testing.T) {
 	전공 aster_big 몰루,
 	ABDCCDF
 	123
+	교수님?!,
 	졸업
 	`
 
@@ -29,6 +30,8 @@ func TestNextToken(t *testing.T) {
 		{token.COLON, ","},
 		{token.CONSTINT, "ABDCCDF"},
 		{token.INT, "123"},
+		{token.STATICVAR, "교수님?!"},
+		{token.COLON, ","},
 		{token.EXITPOINT, "졸업"},
 	}
 
