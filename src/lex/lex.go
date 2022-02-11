@@ -47,6 +47,10 @@ func (l *Lexer) NextToken() token.Token {
 			tok.Literal = l.readNumber()
 			tok.Type = token.INT
 			return tok
+		} else if isConst(l.ch) {
+			tok.Literal = l.readConst()
+			tok.Type = token.CONSTINT
+			return tok
 		} else {
 			tok.Literal = l.readKeyword()
 			tok.Type = token.LookupIdent(tok.Literal)

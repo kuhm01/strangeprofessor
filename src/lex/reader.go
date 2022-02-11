@@ -53,3 +53,11 @@ func (l *Lexer) readNumber() string {
 	}
 	return l.input[position:l.position]
 }
+
+func (l *Lexer) readConst() string {
+	position := l.position
+	for isConst(l.ch) {
+		l.readChar()
+	}
+	return l.input[position:l.position]
+}

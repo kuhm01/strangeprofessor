@@ -7,9 +7,13 @@ func (l *Lexer) skipWhitespace() {
 }
 
 func isLetter(ch string) bool {
-	return "a" <= ch && ch <= "z" || "A" <= ch && ch <= "Z" || ch == "_"
+	return "a" <= ch && ch <= "z" || ch == "_"
 }
 
 func isDigit(ch string) bool {
 	return "0" <= ch && ch <= "9"
+}
+
+func isConst(ch string) bool {
+	return "A" <= ch && ch <= "D" || ch == "F"
 }

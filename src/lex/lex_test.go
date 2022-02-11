@@ -10,6 +10,7 @@ func TestNextToken(t *testing.T) {
 	교수님!!,
 	교수님???,
 	전공 aster_big 몰루,
+	ABDCCDF
 	123
 	졸업
 	`
@@ -26,6 +27,7 @@ func TestNextToken(t *testing.T) {
 		{token.IDENT, "aster_big"},
 		{token.ILLEGAL, "몰루"},
 		{token.COLON, ","},
+		{token.CONSTINT, "ABDCCDF"},
 		{token.INT, "123"},
 		{token.EXITPOINT, "졸업"},
 	}
