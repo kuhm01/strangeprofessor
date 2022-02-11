@@ -34,3 +34,8 @@ type MajorFlagStatement struct {
 	Token      token.Token
 	Identifier string
 }
+
+type JumptoFlagStatement struct {
+	Token          token.Token
+	JumpIdentifier string
+}

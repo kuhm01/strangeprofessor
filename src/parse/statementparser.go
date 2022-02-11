@@ -44,3 +44,15 @@ func (p *Parser) parseMajorFlag() *ast.MajorFlagStatement {
 
 	return stmt
 }
+
+func (p *Parser) parseJumptoMajorFlag() *ast.JumptoFlagStatement {
+	stmt := &ast.JumptoFlagStatement{Token: p.curToken}
+
+	if !p.expectPeek(token.IDENT) {
+		return nil
+	}
+
+	stmt.JumpIdentifier = p.curToken.Literal
+
+	return stmt
+}

@@ -31,3 +31,7 @@ func (sv *StaticVarStatement) String() string       { return sv.Token.Literal }
 func (mf *MajorFlagStatement) statementNode()       {}
 func (mf *MajorFlagStatement) TokenLiteral() string { return mf.Token.Literal }
 func (mf *MajorFlagStatement) String() string       { return mf.Token.Literal }
+
+func (jf *JumptoFlagStatement) statementNode()       {}
+func (jf *JumptoFlagStatement) TokenLiteral() string { return jf.Token.Literal }
+func (jf *JumptoFlagStatement) String() string       { return jf.Token.Literal }

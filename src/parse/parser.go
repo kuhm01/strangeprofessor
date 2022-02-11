@@ -13,6 +13,8 @@ func (p *Parser) parseStatement() ast.Statement {
 	//	return p.parseStaticVarOperatingStatement()
 	case token.FLAG:
 		return p.parseMajorFlag()
+	case token.JUMPPOINT:
+		return p.parseJumptoMajorFlag()
 	}
 
 	return nil
