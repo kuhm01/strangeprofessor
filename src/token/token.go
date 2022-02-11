@@ -58,7 +58,7 @@ func isRequireProfessor(ident string) bool {
 				flag = false
 			}
 		default:
-			if string(tt) != "!" {
+			if string(tt) != "!" && string(tt) != "?" {
 				flag = false
 			}
 		}

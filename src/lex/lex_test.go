@@ -8,6 +8,7 @@ import (
 func TestNextToken(t *testing.T) {
 	input := `
 	교수님!!,
+	교수님???,
 	전공 aster_big 몰루,
 	123
 	졸업
@@ -18,6 +19,8 @@ func TestNextToken(t *testing.T) {
 		expectedLiteral string
 	}{
 		{token.STATICVAR, "교수님!!"},
+		{token.COLON, ","},
+		{token.STATICVAR, "교수님???"},
 		{token.COLON, ","},
 		{token.FLAG, "전공"},
 		{token.IDENT, "aster_big"},
