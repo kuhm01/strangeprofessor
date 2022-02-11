@@ -18,6 +18,9 @@ func Eval(node ast.Node, env *environment.Environment, pc *ProgramCounter) {
 
 	case *ast.JumptoFlagStatement:
 		pc.SetCounter(node.JumpIdentifier)
+
+	case *ast.StaticVarStatement:
+		evalStaticVarStatement(node, env, pc)
 	}
 }
 

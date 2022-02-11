@@ -8,6 +8,10 @@ func NewProfessor() *StaticValues {
 	return &StaticValues{Professor: make([]*node, 7)}
 }
 
+func (s *StaticValues) Setter(n int, index int) bool {
+	return true
+}
+
 func (s *StaticValues) Request_Interview(index int, n *node) bool {
 	i := index - 1
 	s.Professor[i] = n
