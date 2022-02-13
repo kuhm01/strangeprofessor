@@ -43,7 +43,7 @@ func (p *Parser) parseStaticVarOperatingStatement() *ast.StaticVarStatement {
 		iv = strings.Count(ps, "?")
 	}
 
-	stmt.Index = iv - 1
+	stmt.Index = iv
 
 	if !p.expectPeek(token.CONSTINT) {
 		return nil

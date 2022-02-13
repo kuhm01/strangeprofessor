@@ -1,7 +1,9 @@
 package environment
 
+import "fmt"
+
 type Queue struct {
-	students []*node
+	students []*Node
 	len      int
 }
 
@@ -9,13 +11,14 @@ func NewQueue() *Queue {
 	return &Queue{len: 0}
 }
 
-func (q *Queue) Set(n *node) bool {
+func (q *Queue) Set(n *Node) bool {
 	q.students = append(q.students, n)
 	return true
 }
 
-func (q *Queue) Get() (*node, bool) {
+func (q *Queue) Get() (*Node, bool) {
 	if q.len == 0 {
+		fmt.Printf("Queue is Empty\n")
 		return nil, false
 	}
 	item, items := q.students[0], q.students[1:]

@@ -8,9 +8,8 @@ import (
 )
 
 func TestEval(t *testing.T) {
-	input := `전공 civa,
-	여석신청 12 자리,
-	여석신청 15 자리,
+	input := `
+	교수님??? AAA 줘,
 	재수강 civa,
 	졸업
 	`

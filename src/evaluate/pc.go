@@ -1,5 +1,7 @@
 package evaluate
 
+import "fmt"
+
 type Tag struct {
 	IndexName string
 	Index     int
@@ -29,6 +31,7 @@ func (pc *ProgramCounter) SetCounter(name string) bool {
 		pc.Index = tag.Index
 		return true
 	} else {
+		fmt.Printf("Not equal flag name. got=%s", name)
 		return false
 	}
 }
