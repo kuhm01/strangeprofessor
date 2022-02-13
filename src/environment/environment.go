@@ -1,5 +1,7 @@
 package environment
 
+import "fmt"
+
 type Environment struct {
 	Student   *Stack
 	Changed   *Queue
@@ -37,7 +39,13 @@ func NewBuffer() *Buffer {
 }
 
 func (b *Buffer) SetinBuffer(p *PrintCharacter) {
-	b.Buffers[b.LastIndex] = p
+	if b.FirstIndex == b.LastIndex && b.Buffers[b.FirstIndex] != nil && b.Buffers[b.LastIndex] != nil {
+		fmt.Printf("Buffer is Full\n")
+	}
+	tp := &PrintCharacter{Node: &Node{}}
+	tp.Node.Value = p.Node.Value
+	tp.PrintType = p.PrintType
+	b.Buffers[b.LastIndex] = tp
 	b.LastIndex++
 	if b.LastIndex > 20 {
 		b.LastIndex -= 20
@@ -55,5 +63,5 @@ func (b *Buffer) GetinBuffer() *PrintCharacter {
 		b.FirstIndex -= 20
 	}
 
-	return p
+	return &PrintCharacter{Node: p.Node, PrintType: p.PrintType}
 }

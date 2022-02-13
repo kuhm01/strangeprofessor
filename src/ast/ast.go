@@ -49,6 +49,10 @@ type ProfessorTobuffStatement struct {
 	Type  string
 }
 
+type PrintBufferStatement struct {
+	Token token.Token
+}
+
 type ConstantExpression struct {
 	Token token.Token
 	Value int64

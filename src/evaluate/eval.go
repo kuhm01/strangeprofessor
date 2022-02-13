@@ -24,6 +24,9 @@ func Eval(node ast.Node, env *environment.Environment, pc *ProgramCounter) {
 
 	case *ast.ProfessorTobuffStatement:
 		evalBuffFromProfessor(node, env, pc)
+
+	case *ast.PrintBufferStatement:
+		evalPrintBuffer(env, pc)
 	}
 }
 

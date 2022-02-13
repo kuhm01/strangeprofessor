@@ -36,3 +36,20 @@ func evalBuffFromProfessor(node ast.Node, env *environment.Environment, pc *Prog
 	ppr := &environment.PrintCharacter{Node: n, PrintType: jisija}
 	env.Buffer.SetinBuffer(ppr)
 }
+
+func evalPrintBuffer(env *environment.Environment, pc *ProgramCounter) {
+	for {
+		e := env.Buffer.GetinBuffer()
+		if e == nil {
+			break
+		}
+		v := e.Node.Value
+		typer := e.PrintType
+		switch typer {
+		case environment.Char:
+			fmt.Printf("%c", v)
+		case environment.Int:
+			fmt.Printf("%d", v)
+		}
+	}
+}

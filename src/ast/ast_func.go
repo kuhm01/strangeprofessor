@@ -40,6 +40,10 @@ func (jf *JumptoFlagStatement) statementNode()       {}
 func (jf *JumptoFlagStatement) TokenLiteral() string { return jf.Token.Literal }
 func (jf *JumptoFlagStatement) String() string       { return jf.Token.Literal }
 
+func (pb *PrintBufferStatement) statementNode()       {}
+func (pb *PrintBufferStatement) TokenLiteral() string { return pb.Token.Literal }
+func (pb *PrintBufferStatement) String() string       { return pb.Token.Literal }
+
 func (c *ConstantExpression) expressionNode()      {}
 func (c *ConstantExpression) TokenLiteral() string { return c.Token.Literal }
 func (c *ConstantExpression) String() string       { return c.Token.Literal }

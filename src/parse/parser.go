@@ -23,6 +23,8 @@ func (p *Parser) parseStatement() ast.Statement {
 		return p.parseMajorFlag()
 	case token.JUMPPOINT:
 		return p.parseJumptoMajorFlag()
+	case token.PRINTER:
+		return &ast.PrintBufferStatement{Token: p.curToken}
 	}
 
 	return nil
