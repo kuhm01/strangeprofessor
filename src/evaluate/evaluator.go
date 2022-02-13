@@ -73,3 +73,12 @@ func evalPlusClass(env *environment.Environment, pc *ProgramCounter) {
 	pc.Index--
 	pc.Index--
 }
+
+func evalNewProfessor(env *environment.Environment) {
+	for _, pp := range env.Professor.Professor {
+		if pp == nil {
+			continue
+		}
+		pp.Value = 0
+	}
+}

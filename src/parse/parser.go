@@ -34,6 +34,9 @@ func (p *Parser) parseStatement() ast.Statement {
 
 	case token.MINUSCLASS:
 		return &ast.ClassStatement{Token: p.curToken, Type: "휴강"}
+
+	case token.NEWEMPLOY:
+		return &ast.NewProfessorStatement{Token: p.curToken}
 	}
 
 	return nil

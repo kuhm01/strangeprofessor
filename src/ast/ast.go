@@ -62,3 +62,7 @@ type ClassStatement struct {
 	Token token.Token
 	Type  string
 }
+
+type NewProfessorStatement struct {
+	Token token.Token
+}

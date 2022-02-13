@@ -64,3 +64,22 @@ func TestClassEval(t *testing.T) {
 
 	Eval(program, env, pc)
 }
+
+func TestNewProfessor(t *testing.T) {
+	input := `
+	교수님?? A 줘,
+	교수님??? A 줘,
+	신규임용,
+	교수님??? A 줘,
+	졸업
+	`
+
+	l := lex.New(input)
+	p := parse.New(l)
+
+	program := p.ParseProgram()
+	env := environment.New()
+	pc := NewPC(len(program.Statements))
+
+	Eval(program, env, pc)
+}

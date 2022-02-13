@@ -48,6 +48,10 @@ func (c *ClassStatement) statementNode()       {}
 func (c *ClassStatement) TokenLiteral() string { return c.Token.Literal }
 func (c *ClassStatement) String() string       { return c.Token.Literal }
 
+func (np *NewProfessorStatement) statementNode()       {}
+func (np *NewProfessorStatement) TokenLiteral() string { return np.Token.Literal }
+func (np *NewProfessorStatement) String() string       { return np.Token.Literal }
+
 func (c *ConstantExpression) expressionNode()      {}
 func (c *ConstantExpression) TokenLiteral() string { return c.Token.Literal }
 func (c *ConstantExpression) String() string       { return c.Token.Literal }

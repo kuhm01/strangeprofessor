@@ -42,6 +42,8 @@ var keywords = map[string]TokenType{
 
 	"보강": PLUSCLASS,
 	"휴강": MINUSCLASS,
+
+	"신규임용": NEWEMPLOY,
 }
 
 func isRequireProfessor(ident string) bool {
@@ -112,6 +114,8 @@ const (
 
 	MINUSCLASS = "MINUSCLASS"
 	PLUSCLASS  = "PLUSCLASS"
+
+	NEWEMPLOY = "NEWEMPLOY"
 
 	BANG     = "!"
 	QUESTION = "?"
