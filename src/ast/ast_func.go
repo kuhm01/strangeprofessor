@@ -44,6 +44,10 @@ func (pb *PrintBufferStatement) statementNode()       {}
 func (pb *PrintBufferStatement) TokenLiteral() string { return pb.Token.Literal }
 func (pb *PrintBufferStatement) String() string       { return pb.Token.Literal }
 
+func (c *ClassStatement) statementNode()       {}
+func (c *ClassStatement) TokenLiteral() string { return c.Token.Literal }
+func (c *ClassStatement) String() string       { return c.Token.Literal }
+
 func (c *ConstantExpression) expressionNode()      {}
 func (c *ConstantExpression) TokenLiteral() string { return c.Token.Literal }
 func (c *ConstantExpression) String() string       { return c.Token.Literal }

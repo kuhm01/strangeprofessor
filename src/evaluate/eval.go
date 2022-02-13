@@ -27,12 +27,17 @@ func Eval(node ast.Node, env *environment.Environment, pc *ProgramCounter) {
 
 	case *ast.PrintBufferStatement:
 		evalPrintBuffer(env, pc)
+
+	case *ast.ClassStatement:
+		evalClass(node, env, pc)
 	}
 }
 
 func evalProgram(program *ast.Program, env *environment.Environment, pc *ProgramCounter) {
 	for pc.Over() {
-		Eval(program.Statements[pc.Index], env, pc)
+		if !pc.isThisPlused() {
+			Eval(program.Statements[pc.Index], env, pc)
+		}
 		pc.Index++
 	}
 }

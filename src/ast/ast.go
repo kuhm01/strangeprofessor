@@ -57,3 +57,8 @@ type ConstantExpression struct {
 	Token token.Token
 	Value int64
 }
+
+type ClassStatement struct {
+	Token token.Token
+	Type  string
+}

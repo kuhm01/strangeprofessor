@@ -47,3 +47,20 @@ func TestEval(t *testing.T) {
 
 	Eval(program, env, pc)
 }
+
+func TestClassEval(t *testing.T) {
+	input := `
+	휴강,
+	여석신청 15 자리,
+	졸업
+	`
+
+	l := lex.New(input)
+	p := parse.New(l)
+
+	program := p.ParseProgram()
+	env := environment.New()
+	pc := NewPC(len(program.Statements))
+
+	Eval(program, env, pc)
+}

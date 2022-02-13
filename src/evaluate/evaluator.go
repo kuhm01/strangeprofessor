@@ -53,3 +53,23 @@ func evalPrintBuffer(env *environment.Environment, pc *ProgramCounter) {
 		}
 	}
 }
+
+func evalClass(node ast.Node, env *environment.Environment, pc *ProgramCounter) {
+	n := node.(*ast.ClassStatement)
+	switch n.Type {
+	case "보강":
+		evalPlusClass(env, pc)
+	case "휴강":
+		evalMinusClass(env, pc)
+	}
+}
+
+func evalMinusClass(env *environment.Environment, pc *ProgramCounter) {
+	pc.Index++
+}
+
+func evalPlusClass(env *environment.Environment, pc *ProgramCounter) {
+	pc.ThisisPlused()
+	pc.Index--
+	pc.Index--
+}

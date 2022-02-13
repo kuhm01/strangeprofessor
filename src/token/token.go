@@ -39,6 +39,9 @@ var keywords = map[string]TokenType{
 	"공지":   PRINTER,
 	"성적발표": P2PRINTER,
 	"점수발표": P2PRINTER,
+
+	"보강": PLUSCLASS,
+	"휴강": MINUSCLASS,
 }
 
 func isRequireProfessor(ident string) bool {
@@ -106,6 +109,9 @@ const (
 	STACKOPER = "STACKOPER"
 	PRINTER   = "PRINTER"
 	P2PRINTER = "P2PRINTER"
+
+	MINUSCLASS = "MINUSCLASS"
+	PLUSCLASS  = "PLUSCLASS"
 
 	BANG     = "!"
 	QUESTION = "?"

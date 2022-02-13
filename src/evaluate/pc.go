@@ -8,9 +8,10 @@ type Tag struct {
 }
 
 type ProgramCounter struct {
-	Index int
-	Tags  map[string]Tag
-	len   int
+	Index       int
+	Tags        map[string]Tag
+	PlusedIndex []int
+	len         int
 }
 
 func NewPC(programLength int) *ProgramCounter {
@@ -42,4 +43,18 @@ func (pc *ProgramCounter) Over() bool {
 	} else {
 		return false
 	}
+}
+
+func (pc *ProgramCounter) isThisPlused() bool {
+	for _, ii := range pc.PlusedIndex {
+		if ii == pc.Index {
+			return true
+		}
+	}
+
+	return false
+}
+
+func (pc *ProgramCounter) ThisisPlused() {
+	pc.PlusedIndex = append(pc.PlusedIndex, pc.Index)
 }
