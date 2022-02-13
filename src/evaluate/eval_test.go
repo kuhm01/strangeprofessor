@@ -10,6 +10,7 @@ import (
 func TestEval(t *testing.T) {
 	input := `
 	교수님??? AAA 줘,
+	교수님!!! 성적발표,
 	재수강 civa,
 	졸업
 	`

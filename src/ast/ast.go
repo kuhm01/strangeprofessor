@@ -43,6 +43,12 @@ type JumptoFlagStatement struct {
 	JumpIdentifier string
 }
 
+type ProfessorTobuffStatement struct {
+	Token token.Token
+	Index int
+	Type  string
+}
+
 type ConstantExpression struct {
 	Token token.Token
 	Value int64

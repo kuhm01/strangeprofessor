@@ -37,8 +37,8 @@ var keywords = map[string]TokenType{
 	"전과생": DYNAMICVAR,
 
 	"공지":   PRINTER,
-	"성적발표": PRINTER,
-	"점수발표": PRINTER,
+	"성적발표": P2PRINTER,
+	"점수발표": P2PRINTER,
 }
 
 func isRequireProfessor(ident string) bool {
@@ -105,6 +105,7 @@ const (
 
 	STACKOPER = "STACKOPER"
 	PRINTER   = "PRINTER"
+	P2PRINTER = "P2PRINTER"
 
 	BANG     = "!"
 	QUESTION = "?"

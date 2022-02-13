@@ -10,7 +10,15 @@ func (p *Parser) parseStatement() ast.Statement {
 	case token.YEOSEOK:
 		return p.parseYeoseokStatement()
 	case token.STATICVAR:
-		return p.parseStaticVarOperatingStatement()
+		ps := p.curToken.Literal
+
+		switch ps[9] {
+		case '!':
+			return p.parseInBufferFromStaticVarStatement()
+		case '?':
+			return p.parseStaticVarOperatingStatement()
+		}
+
 	case token.FLAG:
 		return p.parseMajorFlag()
 	case token.JUMPPOINT:

@@ -21,6 +21,9 @@ func Eval(node ast.Node, env *environment.Environment, pc *ProgramCounter) {
 
 	case *ast.StaticVarStatement:
 		evalStaticVarStatement(node, env, pc)
+
+	case *ast.ProfessorTobuffStatement:
+		evalBuffFromProfessor(node, env, pc)
 	}
 }
 

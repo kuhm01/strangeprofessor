@@ -3,6 +3,7 @@ package parse
 import (
 	"fmt"
 	"professorc/src/ast"
+	"professorc/src/environment"
 	"professorc/src/token"
 	"strconv"
 	"strings"
@@ -34,14 +35,8 @@ func (p *Parser) parseStaticVarOperatingStatement() *ast.StaticVarStatement {
 	stmt := &ast.StaticVarStatement{Token: p.curToken}
 
 	ps := p.curToken.Literal
-	var iv int
 
-	switch ps[9] {
-	case '!':
-		iv = strings.Count(ps, "!")
-	case '?':
-		iv = strings.Count(ps, "?")
-	}
+	iv := strings.Count(ps, "?")
 
 	stmt.Index = iv
 
@@ -65,6 +60,29 @@ func (p *Parser) parseStaticVarOperatingStatement() *ast.StaticVarStatement {
 		stmt.Level = 3
 	default:
 		return nil
+	}
+
+	return stmt
+}
+
+func (p *Parser) parseInBufferFromStaticVarStatement() *ast.ProfessorTobuffStatement {
+	stmt := &ast.ProfessorTobuffStatement{Token: p.curToken}
+
+	ps := p.curToken.Literal
+
+	iv := strings.Count(ps, "!")
+	stmt.Index = iv
+
+	if !p.expectPeek(token.P2PRINTER) {
+		return nil
+	}
+
+	s := p.curToken.Literal
+	switch s {
+	case "점수발표":
+		stmt.Type = environment.Int
+	case "성적발표":
+		stmt.Type = environment.Char
 	}
 
 	return stmt

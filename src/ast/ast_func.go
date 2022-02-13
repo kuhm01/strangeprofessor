@@ -28,6 +28,10 @@ func (sv *StaticVarStatement) statementNode()       {}
 func (sv *StaticVarStatement) TokenLiteral() string { return sv.Token.Literal }
 func (sv *StaticVarStatement) String() string       { return sv.Token.Literal }
 
+func (psv *ProfessorTobuffStatement) statementNode()       {}
+func (psv *ProfessorTobuffStatement) TokenLiteral() string { return psv.Token.Literal }
+func (psv *ProfessorTobuffStatement) String() string       { return psv.Token.Literal }
+
 func (mf *MajorFlagStatement) statementNode()       {}
 func (mf *MajorFlagStatement) TokenLiteral() string { return mf.Token.Literal }
 func (mf *MajorFlagStatement) String() string       { return mf.Token.Literal }
