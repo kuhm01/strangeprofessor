@@ -192,3 +192,47 @@ Program Counter는 내부적으로 보강 키워드가 있었던 Index를 기억
 우리는 신규임용 키워드를 통해 교수님들에 저장된 값을 완전 초기화할 수 있습니다!</br>
 신규임용 키워드를 사용하면 7개의 변수 공간을 0으로 초기화합니다.</br>
 단, 아직 값이 할당되지않아 Null인 공간은 continue합니다.</br>
+
+---
+## 실행해보기
+컴파일해서 하나의 실행파일을 만들어도 되고 go에서 바로 실행해도 무방합니다.</br>
+```Go
+go run main.go //in main directory
+//or
+go build
+professorc
+```
+
+교수님은 다음의 실행 옵션을 제공합니다.</br>
++ -h, help : 도움말 출력
++ -c, start : 파일 읽어 인터프리트 시작
+
+### 파일 읽기
+이상한 나라의 교수님 언어는 .gyosoo 의 확장자를 가집니다.
+예시</br>
++ main.gyosoo
++ hello.gyosoo
+
+파일을 읽어 실행할려면 다음의 명령문을 입력하세요.</br>
+```Go
+go run main.go -c file directory/filename.gyosoo
+//ex. go run main.go -c test/hello.gyosoo
+//or
+professorc -c file directory/filename.gyosoo
+//ex. professorc -c test/hello.gyosoo
+```
+
+만일 올바르지 못 한 파일. 또는 이상한 입력 등이 있으면</br>
+교수님은 인터프리터 불가 판정을 내려주실 것입니다.</br>
+
+---
+## TestCase
+main directory 안, test 폴더에 이상한 나라의 교수님 언어가</br>
+반드시 통과해야 할 표준 명령들이 있습니다.</br>
+이상한 나라의 교수님 언어의 구현체는 이러한 표준 케이스를</br>
+반드시 통과해야 합니다.</br>
++ hello.gyosoo : Hello World 출력
+
+---
+## 튜링 완전?
+이상한 나라의 교수님은 튜링 완전한가요?
