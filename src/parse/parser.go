@@ -37,6 +37,9 @@ func (p *Parser) parseStatement() ast.Statement {
 
 	case token.NEWEMPLOY:
 		return &ast.NewProfessorStatement{Token: p.curToken}
+
+	case token.DYNAMICVAR:
+		return p.parseStudentStatement()
 	}
 
 	return nil

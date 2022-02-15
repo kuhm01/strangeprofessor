@@ -34,7 +34,7 @@ var keywords = map[string]TokenType{
 	"재학생": DYNAMICVAR,
 	"전입":  STACKOPER,
 	"전출":  STACKOPER,
-	"전과생": DYNAMICVAR,
+	"전과생": QUEUE,
 
 	"공지":   PRINTER,
 	"성적발표": P2PRINTER,
@@ -90,6 +90,7 @@ const (
 
 	STATICVAR  = "STATICVAR"
 	DYNAMICVAR = "DYNAMICVAR"
+	QUEUE      = "QUEUE"
 
 	CONSTINT = "CONSTINT"
 	INT      = "INT"

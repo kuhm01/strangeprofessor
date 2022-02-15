@@ -82,3 +82,23 @@ func evalNewProfessor(env *environment.Environment) {
 		pp.Value = 0
 	}
 }
+
+func evalStack(Type string, env *environment.Environment) {
+	switch Type {
+	case "전출":
+		n, b := env.Student.Pop()
+		if !b {
+			fmt.Printf("Student is not exist\n")
+		}
+
+		env.Changed.Set(n)
+
+	case "전입":
+		n, b := env.Changed.Get()
+		if !b {
+			fmt.Printf("There is No changed student\n")
+		}
+
+		env.Student.Push(n)
+	}
+}

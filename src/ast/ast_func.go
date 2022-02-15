@@ -52,6 +52,10 @@ func (np *NewProfessorStatement) statementNode()       {}
 func (np *NewProfessorStatement) TokenLiteral() string { return np.Token.Literal }
 func (np *NewProfessorStatement) String() string       { return np.Token.Literal }
 
+func (s *StudentStatement) statementNode()       {}
+func (s *StudentStatement) TokenLiteral() string { return s.Token.Literal }
+func (s *StudentStatement) String() string       { return s.Token.Literal }
+
 func (c *ConstantExpression) expressionNode()      {}
 func (c *ConstantExpression) TokenLiteral() string { return c.Token.Literal }
 func (c *ConstantExpression) String() string       { return c.Token.Literal }

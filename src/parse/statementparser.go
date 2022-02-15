@@ -111,3 +111,15 @@ func (p *Parser) parseJumptoMajorFlag() *ast.JumptoFlagStatement {
 
 	return stmt
 }
+
+func (p *Parser) parseStudentStatement() *ast.StudentStatement {
+	stmt := &ast.StudentStatement{Token: p.curToken}
+
+	if !p.expectPeek(token.STACKOPER) {
+		return nil
+	}
+
+	stmt.Type = p.curToken.Literal
+
+	return stmt
+}
