@@ -89,6 +89,7 @@ func evalStack(Type string, env *environment.Environment) {
 		n, b := env.Student.Pop()
 		if !b {
 			fmt.Printf("Student is not exist\n")
+			return
 		}
 
 		env.Changed.Set(n)
@@ -97,8 +98,43 @@ func evalStack(Type string, env *environment.Environment) {
 		n, b := env.Changed.Get()
 		if !b {
 			fmt.Printf("There is No changed student\n")
+			return
 		}
 
 		env.Student.Push(n)
 	}
+}
+
+func evalPtoS(node ast.Node, env *environment.Environment) {
+	n := node.(*ast.ProfessorToStudentStatement)
+	index := n.Index - 1
+
+	if index > 6 {
+		fmt.Printf("Not exist %dth Professor.", index)
+		return
+	}
+
+	newNode := env.Professor.Professor[index]
+	newCopiedNode := &environment.Node{Value: newNode.Value}
+
+	env.Student.Push(newCopiedNode)
+}
+
+func evalStoP(node ast.Node, env *environment.Environment) {
+	n := node.(*ast.StudentToProfessorStatement)
+	index := n.Index - 1
+
+	if index > 6 {
+		fmt.Printf("Not exist %dth Professor.", index)
+		return
+	}
+
+	newNode, b := env.Student.Pop()
+	if !b {
+		fmt.Printf("Student is not exist\n")
+	}
+
+	newCopiedNode := &environment.Node{Value: newNode.Value}
+
+	env.Professor.Professor[index] = newCopiedNode
 }

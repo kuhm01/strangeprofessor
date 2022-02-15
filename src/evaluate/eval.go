@@ -36,6 +36,12 @@ func Eval(node ast.Node, env *environment.Environment, pc *ProgramCounter) {
 
 	case *ast.StudentStatement:
 		evalStack(node.Type, env)
+
+	case *ast.ProfessorToStudentStatement:
+		evalPtoS(node, env)
+
+	case *ast.StudentToProfessorStatement:
+		evalStoP(node, env)
 	}
 }
 

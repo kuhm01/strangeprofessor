@@ -32,9 +32,12 @@ var keywords = map[string]TokenType{
 	"졸업": EXITPOINT,
 
 	"재학생": DYNAMICVAR,
-	"전입":  STACKOPER,
-	"전출":  STACKOPER,
 	"전과생": QUEUE,
+
+	"전입":     STACKOPER,
+	"전출":     STACKOPER,
+	"입학했습니다": IPHOK,
+	"수료했습니다": SURYO,
 
 	"공지":   PRINTER,
 	"성적발표": P2PRINTER,
@@ -63,7 +66,7 @@ func isRequireProfessor(ident string) bool {
 				flag = false
 			}
 		default:
-			if string(tt) != "!" && string(tt) != "?" {
+			if string(tt) != "!" && string(tt) != "?" && string(tt) != "." {
 				flag = false
 			}
 		}
@@ -110,6 +113,9 @@ const (
 	JUMPPOINT = "JUMPPOINT"
 
 	STACKOPER = "STACKOPER"
+	IPHOK     = "IPHOK"
+	SURYO     = "SURYO"
+
 	PRINTER   = "PRINTER"
 	P2PRINTER = "P2PRINTER"
 

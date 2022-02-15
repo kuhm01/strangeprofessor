@@ -83,3 +83,28 @@ func TestNewProfessor(t *testing.T) {
 
 	Eval(program, env, pc)
 }
+
+func TestMemojang(t *testing.T) {
+	input := `
+	교수님? AAAAAAAAA 내놔,
+	교수님! 성적발표,
+	재학생 전입,
+	재학생 전출,
+	교수님. 입학했습니다,
+	재학생 전출,
+	재학생 전입,
+	수료했습니다 교수님..,
+	교수님!! 점수발표,
+	공지,
+	졸업
+	`
+
+	l := lex.New(input)
+	p := parse.New(l)
+
+	program := p.ParseProgram()
+	env := environment.New()
+	pc := NewPC(len(program.Statements))
+
+	Eval(program, env, pc)
+}

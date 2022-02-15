@@ -68,6 +68,16 @@ type StudentStatement struct {
 	Type  string
 }
 
+type ProfessorToStudentStatement struct {
+	Token token.Token
+	Index int
+}
+
+type StudentToProfessorStatement struct {
+	Token token.Token
+	Index int
+}
+
 type NewProfessorStatement struct {
 	Token token.Token
 }

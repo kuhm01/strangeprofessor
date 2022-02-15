@@ -56,6 +56,14 @@ func (s *StudentStatement) statementNode()       {}
 func (s *StudentStatement) TokenLiteral() string { return s.Token.Literal }
 func (s *StudentStatement) String() string       { return s.Token.Literal }
 
+func (pts *ProfessorToStudentStatement) statementNode()       {}
+func (pts *ProfessorToStudentStatement) TokenLiteral() string { return pts.Token.Literal }
+func (pts *ProfessorToStudentStatement) String() string       { return pts.Token.Literal }
+
+func (stp *StudentToProfessorStatement) statementNode()       {}
+func (stp *StudentToProfessorStatement) TokenLiteral() string { return stp.Token.Literal }
+func (stp *StudentToProfessorStatement) String() string       { return stp.Token.Literal }
+
 func (c *ConstantExpression) expressionNode()      {}
 func (c *ConstantExpression) TokenLiteral() string { return c.Token.Literal }
 func (c *ConstantExpression) String() string       { return c.Token.Literal }

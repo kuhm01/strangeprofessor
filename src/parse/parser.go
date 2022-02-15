@@ -18,6 +18,8 @@ func (p *Parser) parseStatement() ast.Statement {
 			return p.parseInBufferFromStaticVarStatement()
 		case '?':
 			return p.parseStaticVarOperatingStatement()
+		case '.':
+			return p.parseTokStackStatement()
 		}
 
 	case token.FLAG:
@@ -40,6 +42,9 @@ func (p *Parser) parseStatement() ast.Statement {
 
 	case token.DYNAMICVAR:
 		return p.parseStudentStatement()
+
+	case token.SURYO:
+		return p.parseTheEnd()
 	}
 
 	return nil

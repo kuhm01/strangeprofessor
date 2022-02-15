@@ -13,6 +13,7 @@ func TestNextToken(t *testing.T) {
 	ABDCCDF
 	123
 	교수님?!,
+	교수님... 입학했습니다,
 	졸업
 	`
 
@@ -32,6 +33,9 @@ func TestNextToken(t *testing.T) {
 		{token.INT, "123"},
 		{token.STATICVAR, "교수님?!"},
 		{token.COLON, ","},
+		{token.STATICVAR, "교수님..."},
+		{token.IPHOK, "입학했습니다"},
+		//{token.COLON, ","},
 		{token.EXITPOINT, "졸업"},
 	}
 

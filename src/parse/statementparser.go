@@ -88,6 +88,41 @@ func (p *Parser) parseInBufferFromStaticVarStatement() *ast.ProfessorTobuffState
 	return stmt
 }
 
+func (p *Parser) parseTokStackStatement() *ast.ProfessorToStudentStatement {
+	stmt := &ast.ProfessorToStudentStatement{Token: p.curToken}
+
+	pts := p.curToken.Literal
+
+	iv := strings.Count(pts, ".")
+	stmt.Index = iv
+
+	if !p.expectPeek(token.IPHOK) {
+		return nil
+	}
+
+	return stmt
+}
+
+func (p *Parser) parseTheEnd() *ast.StudentToProfessorStatement {
+	stmt := &ast.StudentToProfessorStatement{Token: p.curToken}
+
+	if !p.expectPeek(token.STATICVAR) {
+		return nil
+	}
+
+	stp := p.curToken.Literal
+	if stp[9] != '.' {
+		msg := "Parser Error. Not 교수님!"
+		p.errors = append(p.errors, msg)
+		return nil
+	}
+
+	iv := strings.Count(stp, ".")
+	stmt.Index = iv
+
+	return stmt
+}
+
 func (p *Parser) parseMajorFlag() *ast.MajorFlagStatement {
 	stmt := &ast.MajorFlagStatement{Token: p.curToken}
 

@@ -13,6 +13,7 @@ func NewQueue() *Queue {
 
 func (q *Queue) Set(n *Node) bool {
 	q.students = append(q.students, n)
+	q.len++
 	return true
 }
 
@@ -23,5 +24,6 @@ func (q *Queue) Get() (*Node, bool) {
 	}
 	item, items := q.students[0], q.students[1:]
 	q.students = items
+	q.len--
 	return item, true
 }
