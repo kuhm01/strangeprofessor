@@ -67,6 +67,7 @@ func TestClassEval(t *testing.T) {
 
 func TestNewProfessor(t *testing.T) {
 	input := `
+	재수강 ast,
 	교수님?? A 줘,
 	교수님??? A 줘,
 	신규임용,

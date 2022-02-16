@@ -12,6 +12,7 @@ type ProgramCounter struct {
 	Tags        map[string]Tag
 	PlusedIndex []int
 	len         int
+	Outer       *ProgramCounter
 }
 
 func NewPC(programLength int) *ProgramCounter {
@@ -31,6 +32,16 @@ func (pc *ProgramCounter) SetCounter(name string) bool {
 	if tag.IndexName == name {
 		pc.Index = tag.Index
 		return true
+	} else if pc.Outer != nil {
+		outpc := pc.Outer
+		tag = outpc.Tags[name]
+		if tag.IndexName == name {
+			outpc.Index = tag.Index
+			return true
+		} else {
+			fmt.Printf("Not equal flag name. got=%s", name)
+			return false
+		}
 	} else {
 		fmt.Printf("Not equal flag name. got=%s", name)
 		return false
