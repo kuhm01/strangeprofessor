@@ -81,3 +81,15 @@ type StudentToProfessorStatement struct {
 type NewProfessorStatement struct {
 	Token token.Token
 }
+
+type BlockStatement struct {
+	Token      token.Token
+	Statements []Statement
+}
+
+type LiberalStatement struct {
+	Token     token.Token
+	EvalExp   Expression
+	Mandatory *BlockStatement
+	Selection *BlockStatement
+}

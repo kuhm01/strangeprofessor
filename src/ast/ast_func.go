@@ -67,3 +67,28 @@ func (stp *StudentToProfessorStatement) String() string       { return stp.Token
 func (c *ConstantExpression) expressionNode()      {}
 func (c *ConstantExpression) TokenLiteral() string { return c.Token.Literal }
 func (c *ConstantExpression) String() string       { return c.Token.Literal }
+
+func (bs *BlockStatement) statementNode()       {}
+func (bs *BlockStatement) TokenLiteral() string { return bs.Token.Literal }
+func (bs *BlockStatement) String() string {
+	var out bytes.Buffer
+
+	for _, s := range bs.Statements {
+		out.WriteString(s.String())
+	}
+
+	return out.String()
+}
+
+func (l *LiberalStatement) statementNode()       {}
+func (l *LiberalStatement) TokenLiteral() string { return l.Token.Literal }
+func (l *LiberalStatement) String() string {
+	var out bytes.Buffer
+
+	out.WriteString(l.Token.Literal)
+	out.WriteString(l.EvalExp.String())
+	out.WriteString(l.Mandatory.Token.Literal + l.Mandatory.String())
+	out.WriteString(l.Selection.Token.Literal + l.Selection.String())
+
+	return out.String()
+}
