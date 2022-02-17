@@ -1,5 +1,7 @@
 package token
 
+import "unicode/utf8"
+
 type TokenType string
 
 type Token struct {
@@ -70,6 +72,10 @@ func isRequireProfessor(ident string) bool {
 				flag = false
 			}
 		}
+	}
+
+	if utf8.RuneCountInString(ident) < 4 {
+		flag = false
 	}
 
 	return flag

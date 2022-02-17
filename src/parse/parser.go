@@ -1,6 +1,7 @@
 package parse
 
 import (
+	"fmt"
 	"professorc/src/ast"
 	"professorc/src/token"
 )
@@ -45,6 +46,10 @@ func (p *Parser) parseStatement() ast.Statement {
 
 	case token.SURYO:
 		return p.parseTheEnd()
+
+	case token.ILLEGAL:
+		msg := fmt.Sprintf("%s is ILLEGAL\n", p.curToken.Literal)
+		p.errors = append(p.errors, msg)
 	}
 
 	return nil

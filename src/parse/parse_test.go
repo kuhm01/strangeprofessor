@@ -36,3 +36,20 @@ func TestParse(t *testing.T) {
 		fmt.Printf("%s\n", tt.String())
 	}
 }
+
+func TestIllegal(t *testing.T) {
+	input := `
+	몰루,
+	전공 교수,
+	졸업,
+	`
+
+	l := lex.New(input)
+	p := New(l)
+	program := p.ParseProgram()
+	checkParserErrors(t, p)
+
+	for _, tt := range program.Statements {
+		fmt.Printf("%s\n", tt.String())
+	}
+}
