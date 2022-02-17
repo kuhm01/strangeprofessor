@@ -64,9 +64,17 @@ func (stp *StudentToProfessorStatement) statementNode()       {}
 func (stp *StudentToProfessorStatement) TokenLiteral() string { return stp.Token.Literal }
 func (stp *StudentToProfessorStatement) String() string       { return stp.Token.Literal }
 
+func (ptmb *ProfessorTominiBufferStatement) statementNode()       {}
+func (ptmb *ProfessorTominiBufferStatement) TokenLiteral() string { return ptmb.Token.Literal }
+func (ptmb *ProfessorTominiBufferStatement) String() string       { return ptmb.Token.Literal }
+
 func (c *ConstantExpression) expressionNode()      {}
 func (c *ConstantExpression) TokenLiteral() string { return c.Token.Literal }
 func (c *ConstantExpression) String() string       { return c.Token.Literal }
+
+func (l *LiberalExpression) expressionNode()      {}
+func (l *LiberalExpression) TokenLiteral() string { return l.Token.Literal }
+func (l *LiberalExpression) String() string       { return l.Token.Literal }
 
 func (bs *BlockStatement) statementNode()       {}
 func (bs *BlockStatement) TokenLiteral() string { return bs.Token.Literal }
@@ -74,7 +82,7 @@ func (bs *BlockStatement) String() string {
 	var out bytes.Buffer
 
 	for _, s := range bs.Statements {
-		out.WriteString(s.String())
+		out.WriteString(s.String() + "\n")
 	}
 
 	return out.String()
@@ -85,10 +93,9 @@ func (l *LiberalStatement) TokenLiteral() string { return l.Token.Literal }
 func (l *LiberalStatement) String() string {
 	var out bytes.Buffer
 
-	out.WriteString(l.Token.Literal)
-	out.WriteString(l.EvalExp.String())
-	out.WriteString(l.Mandatory.Token.Literal + l.Mandatory.String())
-	out.WriteString(l.Selection.Token.Literal + l.Selection.String())
+	out.WriteString(l.Token.Literal + "\n")
+	out.WriteString(l.Mandatory.Token.Literal + l.Mandatory.String() + "\n")
+	out.WriteString(l.Selection.Token.Literal + l.Selection.String() + "\n")
 
 	return out.String()
 }

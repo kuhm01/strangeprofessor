@@ -3,18 +3,20 @@ package environment
 import "fmt"
 
 type Environment struct {
-	Student   *Stack
-	Changed   *Queue
-	Professor *StaticValues
-	Buffer    *Buffer
+	Student    *Stack
+	Changed    *Queue
+	Professor  *StaticValues
+	Buffer     *Buffer
+	MiniBuffer *Minibuffer
 }
 
 func New() *Environment {
 	return &Environment{
-		Student:   NewStack(),
-		Changed:   NewQueue(),
-		Professor: NewProfessor(),
-		Buffer:    NewBuffer(),
+		Student:    NewStack(),
+		Changed:    NewQueue(),
+		Professor:  NewProfessor(),
+		Buffer:     NewBuffer(),
+		MiniBuffer: NewMinibuffer(),
 	}
 }
 

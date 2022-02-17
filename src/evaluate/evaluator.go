@@ -138,3 +138,21 @@ func evalStoP(node ast.Node, env *environment.Environment) {
 
 	env.Professor.Professor[index] = newCopiedNode
 }
+
+func evalPtomB(node ast.Node, env *environment.Environment) {
+	n := node.(*ast.ProfessorTominiBufferStatement)
+	index := n.Index
+
+	if index > 6 {
+		fmt.Printf("Not exist %dth Professor.", index)
+		return
+	}
+
+	newNode, b := env.Professor.Response_Interview(index)
+	if !b {
+		fmt.Printf("Haven't value. %dth Professor.", index)
+		return
+	}
+
+	env.MiniBuffer.Insert(newNode)
+}

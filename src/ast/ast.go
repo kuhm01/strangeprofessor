@@ -58,6 +58,10 @@ type ConstantExpression struct {
 	Value int64
 }
 
+type LiberalExpression struct {
+	Token token.Token
+}
+
 type ClassStatement struct {
 	Token token.Token
 	Type  string
@@ -69,6 +73,11 @@ type StudentStatement struct {
 }
 
 type ProfessorToStudentStatement struct {
+	Token token.Token
+	Index int
+}
+
+type ProfessorTominiBufferStatement struct {
 	Token token.Token
 	Index int
 }
@@ -89,7 +98,6 @@ type BlockStatement struct {
 
 type LiberalStatement struct {
 	Token     token.Token
-	EvalExp   Expression
 	Mandatory *BlockStatement
 	Selection *BlockStatement
 }

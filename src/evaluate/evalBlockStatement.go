@@ -1,20 +1,18 @@
 package evaluate
 
-/*
-func evalBlockStatement(block *ast.BlockStatement, env *environment.Environment) {
-	var result object.Object
+import (
+	"professorc/src/ast"
+	"professorc/src/environment"
+)
 
-	for _, statement := range block.Statements {
-		result = Eval(statement, env)
+func evalBlockStatement(block *ast.BlockStatement, env *environment.Environment, outpc *ProgramCounter) {
+	inpc := NewPC(len(block.Statements))
+	inpc.Outer = outpc
 
-		if result != nil {
-			rt := result.Type()
-			if rt == object.RETURN_VALUE_OBJ || rt == object.ERROR_OBJ {
-				return result
-			}
+	for inpc.Over() {
+		if !inpc.isThisPlused() {
+			Eval(block.Statements[inpc.Index], env, inpc)
 		}
+		inpc.Index++
 	}
-
-	return result
 }
-*/

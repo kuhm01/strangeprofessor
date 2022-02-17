@@ -28,8 +28,10 @@ var keywords = map[string]TokenType{
 	"재수강": JUMPPOINT,
 
 	"교양":   IF,
+	"교양은":  BRANCHFLAG,
 	"교양필수": IFFLAG,
 	"교양선택": ELSEFLAG,
+	"교양끝":  IFFLAGEXIT,
 
 	"졸업": EXITPOINT,
 
@@ -44,6 +46,7 @@ var keywords = map[string]TokenType{
 	"공지":   PRINTER,
 	"성적발표": P2PRINTER,
 	"점수발표": P2PRINTER,
+	"평점제출": SUBMITSCORE,
 
 	"보강": PLUSCLASS,
 	"휴강": MINUSCLASS,
@@ -94,8 +97,9 @@ func LookupIdent(ident string) TokenType {
 const (
 	IDENT = "IDENT"
 
-	PROFESSOR = "교수님"
-	GIVEME    = "공갈"
+	PROFESSOR   = "교수님"
+	GIVEME      = "공갈"
+	SUBMITSCORE = "SUBMITSCORE"
 
 	STATICVAR  = "STATICVAR"
 	DYNAMICVAR = "DYNAMICVAR"
@@ -111,9 +115,15 @@ const (
 	SEMICOLON = ";"
 	COLON     = ","
 
-	IF       = "IF"
-	IFFLAG   = "IFFLAG"
-	ELSEFLAG = "ELSEFLAG"
+	IF         = "IF"
+	IFFLAG     = "IFFLAG"
+	ELSEFLAG   = "ELSEFLAG"
+	BRANCHFLAG = "BRANCHFLAG"
+
+	FLAGIN  = "["
+	FLAGOUT = "]"
+
+	IFFLAGEXIT = "IFFLAGEXIT"
 
 	FLAG      = "FLAG"
 	JUMPPOINT = "JUMPPOINT"

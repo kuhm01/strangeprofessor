@@ -103,6 +103,21 @@ func (p *Parser) parseTokStackStatement() *ast.ProfessorToStudentStatement {
 	return stmt
 }
 
+func (p *Parser) parseTominiBufferStatement() *ast.ProfessorTominiBufferStatement {
+	stmt := &ast.ProfessorTominiBufferStatement{Token: p.curToken}
+
+	ptmb := p.curToken.Literal
+
+	iv := strings.Count(ptmb, ".")
+	stmt.Index = iv
+
+	if !p.expectPeek(token.SUBMITSCORE) {
+		return nil
+	}
+
+	return stmt
+}
+
 func (p *Parser) parseTheEnd() *ast.StudentToProfessorStatement {
 	stmt := &ast.StudentToProfessorStatement{Token: p.curToken}
 

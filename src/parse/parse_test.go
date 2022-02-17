@@ -53,3 +53,27 @@ func TestIllegal(t *testing.T) {
 		fmt.Printf("%s\n", tt.String())
 	}
 }
+
+func TestIfflag(t *testing.T) {
+	input := `
+	교양,
+	교양필수 여석신청 2 자리,
+	전공 ast,
+	교수님?? A 줘, 교수님.. 입학했습니다,
+	재학생 전출,
+	교양선택,
+	전공 ca, 교수님? A 주세요, 교수님. 입학했습니다,
+	재학생 전출,
+	교양끝,
+	졸업,
+	`
+
+	l := lex.New(input)
+	p := New(l)
+	program := p.ParseProgram()
+	checkParserErrors(t, p)
+
+	for _, tt := range program.Statements {
+		fmt.Printf("%s\n", tt.String())
+	}
+}

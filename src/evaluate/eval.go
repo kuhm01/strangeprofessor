@@ -42,6 +42,12 @@ func Eval(node ast.Node, env *environment.Environment, pc *ProgramCounter) {
 
 	case *ast.StudentToProfessorStatement:
 		evalStoP(node, env)
+
+	case *ast.BlockStatement:
+		evalBlockStatement(node, env, pc)
+
+	case *ast.ProfessorTominiBufferStatement:
+		evalPtomB(node, env)
 	}
 }
 

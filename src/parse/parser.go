@@ -20,7 +20,13 @@ func (p *Parser) parseStatement() ast.Statement {
 		case '?':
 			return p.parseStaticVarOperatingStatement()
 		case '.':
-			return p.parseTokStackStatement()
+			tt := p.peekToken.Type
+			switch tt {
+			case token.IPHOK:
+				return p.parseTokStackStatement()
+			case token.SUBMITSCORE:
+				return p.parseTominiBufferStatement()
+			}
 		}
 
 	case token.FLAG:
@@ -46,6 +52,9 @@ func (p *Parser) parseStatement() ast.Statement {
 
 	case token.SURYO:
 		return p.parseTheEnd()
+
+	case token.IF:
+		return p.parseIfStatement()
 
 	case token.ILLEGAL:
 		msg := fmt.Sprintf("%s is ILLEGAL\n", p.curToken.Literal)
