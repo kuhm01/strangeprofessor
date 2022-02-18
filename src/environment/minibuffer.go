@@ -33,7 +33,9 @@ func (mb *Minibuffer) Operating(ch byte) (*Node, bool) {
 	}
 
 	n1 := mb.LeftNode.Value
+	mb.LeftNode = nil
 	n2 := mb.RightNode.Value
+	mb.RightNode = nil
 	var rn int
 
 	switch ch {
