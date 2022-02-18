@@ -115,3 +115,31 @@ Hello World를 출력하는 기본 코드이다.
 </div>
 
 </details>
+
+## liberal.gyosoo
+<details>
+<summary>자세히 보기</summary>
+<div markdown="1">
+  
+### if branch test
+  조건분기를 test하는 코드이다.
+```Go
+교수님? A 줘,
+교수님?? B 줘,
+교양,
+교양필수 교수님??? AAA 주세요,
+교수님!!! 점수발표,
+교양선택 교수님??? BBB 주세요,
+교수님!!! 점수발표,
+교양끝,
+공지,
+졸업,
+```
+  
+  예상 결과 :</br>
+  9</br>
+  물론 첫 번째 교수님과 두 번째 교수님에 어떤 값을</br>
+  세팅하느냐에 따라 분기는 달라질 것이다.</br>
+</div>
+
+</details>
