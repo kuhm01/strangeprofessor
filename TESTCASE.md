@@ -109,6 +109,9 @@ Hello World를 출력하는 기본 코드이다.
   처음 전입, 전출 명령에서는 Queue와 Stack에</br>
   저장 된 Data가 없으므로 이에 관한 오류가 출력된다.</br>
   그 뒤에는 Data가 있게되었으므로 과정을 거쳐 변수를 출력</br>
+  ~~ is Empty는 연산과정에서 출력하는 오류이고</br>
+  There is No changed student와 Student is not exist는</br>
+  연산에서 오류를 전달받은 Queue와 Stack이 출력하는 오류이다.</br>
 </div>
 
 </details>
