@@ -51,6 +51,9 @@ func Eval(node ast.Node, env *environment.Environment, pc *ProgramCounter) {
 
 	case *ast.MiniBufferOperationStatement:
 		evalmBOper(node, env)
+
+	case *ast.LiberalStatement:
+		evalLiberalStatement(node, env, pc)
 	}
 }
 

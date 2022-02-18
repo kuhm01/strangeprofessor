@@ -85,6 +85,30 @@ func TestNewProfessor(t *testing.T) {
 	Eval(program, env, pc)
 }
 
+func TestLiberalStatement(t *testing.T) {
+	input := `
+	교수님? A 줘,
+	교수님?? B 줘,
+	교양,
+	교양필수 교수님??? AAA 주세요,
+	교수님!!! 점수발표,
+	교양선택 교수님??? BBB 주세요,
+	교수님!!! 점수발표,
+	교양끝,
+	공지,
+	졸업,
+	`
+
+	l := lex.New(input)
+	p := parse.New(l)
+
+	program := p.ParseProgram()
+	env := environment.New()
+	pc := NewPC(len(program.Statements))
+
+	Eval(program, env, pc)
+}
+
 func TestMemojang(t *testing.T) {
 	input := `
 	교수님? AAAAAAAAA 내놔,
