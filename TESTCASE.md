@@ -5,6 +5,7 @@
 1. __hello.gyosoo__
 2. __illegal.gyosoo__
 3. __qstest.gyosoo__
+4. __liberal.gyosoo__
 
 
 ## hello.gyosoo
