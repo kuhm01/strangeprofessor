@@ -68,6 +68,10 @@ func (ptmb *ProfessorTominiBufferStatement) statementNode()       {}
 func (ptmb *ProfessorTominiBufferStatement) TokenLiteral() string { return ptmb.Token.Literal }
 func (ptmb *ProfessorTominiBufferStatement) String() string       { return ptmb.Token.Literal }
 
+func (mbo *MiniBufferOperationStatement) statementNode()       {}
+func (mbo *MiniBufferOperationStatement) TokenLiteral() string { return mbo.Token.Literal }
+func (mbo *MiniBufferOperationStatement) String() string       { return mbo.Token.Literal }
+
 func (c *ConstantExpression) expressionNode()      {}
 func (c *ConstantExpression) TokenLiteral() string { return c.Token.Literal }
 func (c *ConstantExpression) String() string       { return c.Token.Literal }

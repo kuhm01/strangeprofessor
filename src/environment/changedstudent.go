@@ -12,7 +12,8 @@ func NewQueue() *Queue {
 }
 
 func (q *Queue) Set(n *Node) bool {
-	q.students = append(q.students, n)
+	node := &Node{Value: n.Value}
+	q.students = append(q.students, node)
 	q.len++
 	return true
 }

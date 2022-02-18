@@ -82,6 +82,11 @@ type ProfessorTominiBufferStatement struct {
 	Index int
 }
 
+type MiniBufferOperationStatement struct {
+	Token token.Token
+	Type  string
+}
+
 type StudentToProfessorStatement struct {
 	Token token.Token
 	Index int

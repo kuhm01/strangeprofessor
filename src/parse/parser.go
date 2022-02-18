@@ -56,6 +56,9 @@ func (p *Parser) parseStatement() ast.Statement {
 	case token.IF:
 		return p.parseIfStatement()
 
+	case token.MBUFFEROPER:
+		return p.parseMiniBufferOperationStatement()
+
 	case token.ILLEGAL:
 		msg := fmt.Sprintf("%s is ILLEGAL\n", p.curToken.Literal)
 		p.errors = append(p.errors, msg)

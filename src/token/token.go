@@ -48,6 +48,9 @@ var keywords = map[string]TokenType{
 	"점수발표": P2PRINTER,
 	"평점제출": SUBMITSCORE,
 
+	"평점합": MBUFFEROPER,
+	"평점곱": MBUFFEROPER,
+
 	"보강": PLUSCLASS,
 	"휴강": MINUSCLASS,
 
@@ -131,6 +134,8 @@ const (
 	STACKOPER = "STACKOPER"
 	IPHOK     = "IPHOK"
 	SURYO     = "SURYO"
+
+	MBUFFEROPER = "MBUFFEROPER"
 
 	PRINTER   = "PRINTER"
 	P2PRINTER = "P2PRINTER"

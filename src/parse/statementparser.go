@@ -173,3 +173,11 @@ func (p *Parser) parseStudentStatement() *ast.StudentStatement {
 
 	return stmt
 }
+
+func (p *Parser) parseMiniBufferOperationStatement() *ast.MiniBufferOperationStatement {
+	stmt := &ast.MiniBufferOperationStatement{Token: p.curToken}
+
+	stmt.Type = p.curToken.Literal
+
+	return stmt
+}

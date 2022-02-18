@@ -48,6 +48,9 @@ func Eval(node ast.Node, env *environment.Environment, pc *ProgramCounter) {
 
 	case *ast.ProfessorTominiBufferStatement:
 		evalPtomB(node, env)
+
+	case *ast.MiniBufferOperationStatement:
+		evalmBOper(node, env)
 	}
 }
 

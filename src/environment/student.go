@@ -25,7 +25,7 @@ func (s *Stack) Push(n *Node) bool {
 		return false
 	}
 	s.index++
-	s.students[s.index] = n
+	s.students[s.index] = &Node{Value: n.Value}
 	s.len++
 	return true
 }

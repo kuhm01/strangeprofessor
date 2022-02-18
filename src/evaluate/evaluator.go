@@ -156,3 +156,23 @@ func evalPtomB(node ast.Node, env *environment.Environment) {
 
 	env.MiniBuffer.Insert(newNode)
 }
+
+func evalmBOper(node ast.Node, env *environment.Environment) {
+	str := node.(*ast.MiniBufferOperationStatement).Type
+	var resultNode *environment.Node
+	var b bool
+
+	switch str {
+	case "평점곱":
+		resultNode, b = env.MiniBuffer.Operating('*')
+	case "평점합":
+		resultNode, b = env.MiniBuffer.Operating('+')
+	}
+
+	if !b {
+		return
+	}
+
+	newNode := &environment.Node{Value: resultNode.Value}
+	env.Professor.Professor[6] = newNode
+}
