@@ -287,12 +287,11 @@ professorc -c file directory/filename.gyosoo
 
 ---
 ## TestCase
-main directory 안, test 폴더에 이상한 나라의 교수님 언어가</br>
-반드시 통과해야 할 표준 명령들이 있습니다.</br>
+main directory 내부, test 폴더에 이상한 나라의 교수님 언어가</br>
+반드시 통과해야 할 표준 케이스들이 있습니다.</br>
 이상한 나라의 교수님 언어의 구현체는 이러한 표준 케이스를</br>
 반드시 통과해야 합니다.</br>
-+ hello.gyosoo : Hello World 출력
-+ qstest.gyosoo : 큐와 스택 간 자료이동 시험 //큐와 스택에 공간이 없음을 알리는 오류문 출력 후, H72 출력
+다음에서 소개
 
 ---
 ## 튜링 완전?
